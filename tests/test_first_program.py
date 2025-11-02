@@ -1,6 +1,8 @@
-from playwright.sync_api import Page,expect
+from playwright.sync_api import expect
 
-def test_verify_title_tap(page:Page):
+def test_verify_title_tap(browser):
+    context = browser.new_context()
+    page = context.new_page()
     page.goto("https://testautomationpractice.blogspot.com/")
     expect(page).to_have_title("Automation Testing Practice")
     # page.pause()
